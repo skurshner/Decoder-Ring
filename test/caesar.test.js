@@ -10,7 +10,7 @@ describe("caesar", () => {
     });
     it("should return a string", () => {
       const actual = caesar("thinkful", 3);
-      expect(actual).to.be.a.string;
+      expect(actual).to.be.a("string");
     });
   });
   describe("Error Handling", () => {

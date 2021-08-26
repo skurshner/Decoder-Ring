@@ -7,7 +7,10 @@ const polybiusModule = (function () {
   // you can add any code you want within this function scope
 
   function polybius(input, encode = true) {
-    // your solution code here
+    if (!encode) {
+      let removedSpaces = input.replace(" ", "");
+      if (removedSpaces % 2 !== 0) return false;
+    }
   }
 
   return {
