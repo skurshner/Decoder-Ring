@@ -23,6 +23,10 @@ describe("caesar", () => {
     const actual = caesar("a", 99);
     expect(actual).to.be.false;
   });
+  it("should return a string", () => {
+    const actual = caesar("thinkful", 3);
+    expect(actual).to.be.a.string;
+  });
   it("should return a string with letters shifted by a positive number entered for shift", () => {
     const expected = "wklqnixo";
     const actual = caesar("thinkful", 3);
