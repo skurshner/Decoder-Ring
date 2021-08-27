@@ -6,13 +6,8 @@
 const substitutionModule = (function () {
   // function to search through an array and return true if any duplicates
   function findDuplicate(array) {
-    for (let i = 0; i < array.length; i++) {
-      for (let j = i + 1; j < array.length; j++) {
-        if (array[i] === array[j]) {
-          return true;
-        }
-      }
-    }
+    // converts to set and measures whether or not the length is the same as the original array
+    return new Set(array).size !== array.length;
   }
 
   function substitution(input, alphabet = "", encode = true) {
@@ -27,31 +22,31 @@ const substitutionModule = (function () {
     if (encode) {
       return output // return output array...
         .map(letter => letter.charCodeAt(0) - 97) // with letters mapped to corresponding ASCII values
-        .map(number => {
+        .map(item => {
           // mapped using the entered alphabet
-          number >= 0 && number <= 25
-            ? (number = alphabetArray[number]) // if between 0 and 25, map to corresponding value in alphabet array,
-            : (number = String.fromCharCode(97 + number)); // else return it back to original letter from ASCII value
-          return number;
+          item >= 0 && item <= 25
+            ? (item = alphabetArray[item]) // if between 0 and 25, map to corresponding value in alphabet array,
+            : (item = String.fromCharCode(97 + item)); // else return it back to original letter from ASCII value
+          return item;
         })
         .join(""); // join the array back into a string
     }
 
     // Decode
     return output // return the output of the output array...
-      .map(letter => {
-        // mapped to the index of the corresponding character in alphabet array
-        alphabetArray.forEach((character, index) => {
-          character === letter && (letter = index);
-          // if letter in output array matches a character in alphabet, assign letter to corresponding index
+      .map(item => {
+        // mapped to the index of the corresponding letter in alphabet array
+        alphabetArray.forEach((letter, index) => {
+          // if item in output array matches a letter in alphabet, assign item to corresponding index
+          letter === item && (item = index);
         });
-        return letter;
+        return item;
       })
-      .map(number => {
+      .map(item => {
         // mapped back to a letter
-        number !== " " && (number = String.fromCharCode(97 + number));
         // if number is not a space, map it back to a letter from the ASCII value
-        return number;
+        item !== " " && (item = String.fromCharCode(97 + item));
+        return item;
       })
       .join(""); // joined back into a string
   }

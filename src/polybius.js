@@ -44,20 +44,21 @@ const polybiusModule = (function () {
       return input // return the output of the inputted string...
         .toLowerCase() // set to lower case
         .split("") // split into an array
-        .map(character => {
-          // mapped for characters in 'letters' object
+        .map(item => {
+          // mapped for number in 'letters' object
           for (letter in letters) {
             // for each key in letters
-            letter === character && (character = letters[letter]);
-            // if the key matches a character in the array, convert that character to its encoded value
+            letter === item && (item = letters[letter]);
+            // if the key matches an item in the array, convert that item to its encoded value
           }
-          return character;
+          return item;
         })
         .join(""); // join as a string
     }
 
     // Decode
-    const inputArray = input.replace(" ", "  ").split(""); // replace single spaces with double spaces & split into array
+    // replace single spaces with double spaces (force an even length) & split into array
+    const inputArray = input.replace(" ", "  ").split("");
     const charactersArray = []; // create new array to store separated strings
     for (let i = 1; i < inputArray.length; i += 2) {
       // loop through input array, starting at 2nd element and incrementing by 2
@@ -65,17 +66,17 @@ const polybiusModule = (function () {
       // add values at both index i and one before it as single elements in new array
     }
     return charactersArray // return output of charactersArray...
-      .map(character => {
-        // mapped for characters in 'letters' object
+      .map(item => {
+        // mapped for letter in 'letters' object
         for (letter in letters) {
           // for each key in letters
-          if (letters[letter] === character) {
-            // if the value matches a character in the array
-            character = letter; // convert that character to its decoded value
-            (character === "i" || character === "j") && (character = "(i/j)"); // if character is 'i' or 'j', convert to '(i/j)'
+          if (letters[letter] === item) {
+            // if the value matches a in the array
+            item = letter; // convert that item to its decoded value
+            (item === "i" || item === "j") && (item = "(i/j)"); // if item is 'i' or 'j', convert to '(i/j)'
           }
         }
-        return character;
+        return item;
       })
       .join("") // join as a string
       .replace("  ", " "); // replace double spaces back to single

@@ -12,14 +12,14 @@ const caesarModule = (function () {
     return input // return the output of the inputted string...
       .toLowerCase() // set to lower case
       .split("") // split into an array
-      .map(letter => letter.charCodeAt(0) - 97) // with letters mapped to corresponding ASCII values
+      .map(letter => letter.charCodeAt(0) - 97) // letters mapped to corresponding ASCII values
       .map(number => {
-        // with shifted numbers mapped
+        // numbers mapped to their shifted values
+        // if number is between 0 and 25 (lowercase letters)
         if (number >= 0 && number <= 25) {
-          // if number is between 0 and 25 (lowercase letters)
           let shifted; // initialize variable to store shifted number
-          encode ? (shifted = number + shift) : (shifted = number - shift);
           // based on 'encode,' either subtract or add the shifted value from each number
+          encode ? (shifted = number + shift) : (shifted = number - shift);
           shifted > 25 && (shifted -= 26); // if shifted value is greater than 25, subtract 26 to wrap it
           shifted < 0 && (shifted += 26); // if shifted value is less than 0, add 26 to wrap it
           return shifted; //return the shifted value

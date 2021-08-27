@@ -44,8 +44,8 @@ describe("Substitution", () => {
       expect(actual).to.equal(expected);
     });
     it("should ignore special characters", () => {
-      const expected = "...elp xhm xf mbymwwmfj dne!";
-      const actual = substitution("...you are an excellent spy!", "xoyqmcgrukswaflnthdjpzibev");
+      const expected = "...mbymwwmfj!";
+      const actual = substitution("...excellent!", "xoyqmcgrukswaflnthdjpzibev");
       expect(actual).to.equal(expected);
     });
     it("should encode correctly with special characters in alphabet", () => {
