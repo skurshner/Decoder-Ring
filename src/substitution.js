@@ -16,13 +16,15 @@ const substitutionModule = (function () {
   }
 
   function substitution(input, alphabet = "", encode = true) {
+    // Guard Clauses
     if (alphabet.length !== 26) return false; // if alphabet length not 26, return false
     const alphabetArray = alphabet.split(""); // convert alphabet string to array;
     if (findDuplicate(alphabetArray)) return false; // if any duplicates, return false
 
     const output = input.toLowerCase().split(""); // convert input to lower case and split into array
+
+    // Encode
     if (encode) {
-      // Encode
       return output // return output array...
         .map(letter => letter.charCodeAt(0) - 97) // with letters mapped to corresponding ASCII values
         .map(number => {

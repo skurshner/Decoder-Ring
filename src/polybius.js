@@ -36,7 +36,7 @@ const polybiusModule = (function () {
   };
   function polybius(input, encode = true) {
     // Guard Clause
-    if (input.replace(" ", "").length % 2) return false; // return false if length of input without spaces is odd
+    if (!encode && input.replace(" ", "").length % 2) return false; // return false if length of encoded input without spaces is odd
 
     // Encode
     if (encode) {
