@@ -18,6 +18,10 @@ describe("substitution", () => {
       const actual = substitution("thinkful", "abcdefghijklmnopqrstuvwxya");
       expect(actual).to.be.false;
     });
+    it("should return false if substitution alphabet is missing", () => {
+      const actual = substitution("thinkful");
+      expect(actual).to.be.false;
+    });
   });
   describe("Encoding", () => {
     it("should return a string with the correct encoding", () => {
@@ -26,8 +30,8 @@ describe("substitution", () => {
       expect(actual).to.equal(expected);
     });
     it("should ignore capital letters", () => {
-      const expected = "elp xhm xf mbymwwmfj dne";
-      const actual = substitution("YOU ARE AN EXCELLENT SPY", "xoyqmcgrukswaflnthdjpzibev");
+      const expected = "mbymwwmfj";
+      const actual = substitution("EXCELLENT", "xoyqmcgrukswaflnthdjpzibev");
       expect(actual).to.equal(expected);
     });
     it("should ignore spaces", () => {
@@ -36,13 +40,30 @@ describe("substitution", () => {
       expect(actual).to.equal(expected);
     });
     it("should ignore special characters in input string", () => {
-      const expected = "elp xhm xf mbymwwmfj dne!";
-      const actual = substitution("you are an excellent spy!", "xoyqmcgrukswaflnthdjpzibev");
+      const expected = "...elp xhm xf mbymwwmfj dne!";
+      const actual = substitution("...you are an excellent spy!", "xoyqmcgrukswaflnthdjpzibev");
       expect(actual).to.equal(expected);
     });
     it("should encode correctly with special characters in alphabet", () => {
       const expected = "y&ii$r&";
       const actual = substitution("message", "$wae&zrdxtfcygvuhbijnokmpl");
+      expect(actual).to.equal(expected);
+    });
+  });
+  describe("Decoding", () => {
+    it("should return a string with the correct decoding", () => {
+      const expected = "thinkful";
+      const actual = substitution("jrufscpw", "xoyqmcgrukswaflnthdjpzibev", false);
+      expect(actual).to.equal(expected);
+    });
+    it("should work if there are special characters in alphabet", () => {
+      const expected = "message";
+      const actual = substitution("y&ii$r&", "$wae&zrdxtfcygvuhbijnokmpl", false);
+      expect(actual).to.equal(expected);
+    });
+    it("should preserve spaces in input string", () => {
+      const expected = "you are an excellent spy";
+      const actual = substitution("elp xhm xf mbymwwmfj dne", "xoyqmcgrukswaflnthdjpzibev", false);
       expect(actual).to.equal(expected);
     });
   });

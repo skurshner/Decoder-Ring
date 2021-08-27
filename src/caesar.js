@@ -11,7 +11,7 @@ const caesarModule = (function () {
     return input // return the output of the inputted string...
       .toLowerCase() // set to lower case
       .split("") // split into an array
-      .map(letter => letter.charCodeAt(0) - 97) // with letters mapped to corresponding numbers
+      .map(letter => letter.charCodeAt(0) - 97) // with letters mapped to corresponding ASCII values
       .map(number => {
         // with shifted numbers mapped
         if (number >= 0 && number <= 25) {
@@ -24,7 +24,7 @@ const caesarModule = (function () {
         }
         return number; // return the same value if not between 0 and 25
       })
-      .map(number => String.fromCharCode(97 + number)) // mapped back to letters
+      .map(number => String.fromCharCode(97 + number)) // mapped back to letters from ASCII values
       .join(""); // joined back into a string
   }
 

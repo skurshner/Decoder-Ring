@@ -4,7 +4,7 @@
 // of the anonymous function on line 6
 
 const substitutionModule = (function () {
-  // you can add any code you want within this function scope
+  // function to search through an array and return true if any duplicates
   function findDuplicate(array) {
     for (let i = 0; i < array.length; i++) {
       for (let j = i + 1; j < array.length; j++) {
@@ -15,24 +15,37 @@ const substitutionModule = (function () {
     }
   }
 
-  function substitution(input, alphabet, encode = true) {
-    if (alphabet.length !== 26) return false;
-    const alphabetArray = alphabet.split("");
-    if (findDuplicate(alphabetArray)) return false;
+  function substitution(input, alphabet = "", encode = true) {
+    if (alphabet.length !== 26) return false; // if alphabet length not 26, return false
+    const alphabetArray = alphabet.split(""); // convert alphabet string to array;
+    if (findDuplicate(alphabetArray)) return false; // if any duplicates, return false
 
-    // encode
-    // split input into an array
-    return input
-      .toLowerCase()
-      .split("")
-      .map(letter => letter.charCodeAt(0) - 97)
+    const output = input.toLowerCase().split("");
+    if (!encode) {
+      return output
+        .map(letter => {
+          for (let i = 0; i < 26; i++) {
+            if (alphabetArray[i] === letter) {
+              return i;
+            }
+          }
+          return letter;
+        })
+        .map(number => {
+          number !== " " ? (number = String.fromCharCode(97 + number)) : number;
+          return number;
+        })
+        .join("");
+    }
+
+    return output
+      .map(letter => letter.charCodeAt(0) - 97) // letters mapped to corresponding ASCII values
       .map(number => {
+        // if between 0 and 25, map to corresponding value in alphabet array, else return it back to letter from ASCII value
         number >= 0 && number <= 25 ? (number = alphabetArray[number]) : (number = String.fromCharCode(97 + number));
         return number;
       })
       .join("");
-    // map to numbers 0-25
-    // map to items at alphabet array's index
   }
 
   return {
