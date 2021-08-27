@@ -40,8 +40,8 @@ describe("Polybius", () => {
       expect(actual).to.equal(expected);
     });
     it("should ignore upper-case letters", () => {
-      const expected = "3251131343 2543241341";
-      const actual = polybius("HELLO WORLD");
+      const expected = "3251131343";
+      const actual = polybius("HELLO");
       expect(actual).to.equal(expected);
     });
   });
