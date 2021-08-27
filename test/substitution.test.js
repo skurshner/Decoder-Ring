@@ -1,7 +1,7 @@
 const { substitution } = require("../src/substitution");
 const expect = require("chai").expect; // Write your tests here!
 
-describe("substitution", () => {
+describe("Substitution", () => {
   describe("Function Validation", () => {
     it("should be a function", () => {
       const expected = "function";
@@ -24,7 +24,11 @@ describe("substitution", () => {
     });
   });
   describe("Encoding", () => {
-    it("should return a string with the correct encoding", () => {
+    it("should return the encoded message as a string", () => {
+      const actual = typeof substitution("thinkful", "xoyqmcgrukswaflnthdjpzibev");
+      expect(actual).to.be.a("string");
+    });
+    it("should encode correctly", () => {
       const expected = "jrufscpw";
       const actual = substitution("thinkful", "xoyqmcgrukswaflnthdjpzibev");
       expect(actual).to.equal(expected);
@@ -39,7 +43,7 @@ describe("substitution", () => {
       const actual = substitution("you are an excellent spy", "xoyqmcgrukswaflnthdjpzibev");
       expect(actual).to.equal(expected);
     });
-    it("should ignore special characters in input string", () => {
+    it("should ignore special characters", () => {
       const expected = "...elp xhm xf mbymwwmfj dne!";
       const actual = substitution("...you are an excellent spy!", "xoyqmcgrukswaflnthdjpzibev");
       expect(actual).to.equal(expected);
@@ -51,7 +55,11 @@ describe("substitution", () => {
     });
   });
   describe("Decoding", () => {
-    it("should return a string with the correct decoding", () => {
+    it("should return the decoded message as a string", () => {
+      const actual = typeof substitution("thinkful", "xoyqmcgrukswaflnthdjpzibev", false);
+      expect(actual).to.be.a("string");
+    });
+    it("should decode correctly", () => {
       const expected = "thinkful";
       const actual = substitution("jrufscpw", "xoyqmcgrukswaflnthdjpzibev", false);
       expect(actual).to.equal(expected);
@@ -61,7 +69,7 @@ describe("substitution", () => {
       const actual = substitution("y&ii$r&", "$wae&zrdxtfcygvuhbijnokmpl", false);
       expect(actual).to.equal(expected);
     });
-    it("should preserve spaces in input string", () => {
+    it("should preserve spaces", () => {
       const expected = "you are an excellent spy";
       const actual = substitution("elp xhm xf mbymwwmfj dne", "xoyqmcgrukswaflnthdjpzibev", false);
       expect(actual).to.equal(expected);

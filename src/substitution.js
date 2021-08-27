@@ -20,32 +20,38 @@ const substitutionModule = (function () {
     const alphabetArray = alphabet.split(""); // convert alphabet string to array;
     if (findDuplicate(alphabetArray)) return false; // if any duplicates, return false
 
-    const output = input.toLowerCase().split("");
+    const output = input.toLowerCase().split(""); // convert input to lower case and split into array
     if (!encode) {
-      return output
+      // if encode set to false
+      return output // return the output of the output array...
         .map(letter => {
-          for (let i = 0; i < 26; i++) {
-            if (alphabetArray[i] === letter) {
-              return i;
-            }
-          }
+          // mapped to the index of the corresponding character in alphabet array
+          alphabetArray.forEach((character, index) => {
+            character === letter && (letter = index);
+            // if letter in output array matches a character in alphabet, assign letter to corresponding index
+          });
           return letter;
         })
         .map(number => {
-          number !== " " ? (number = String.fromCharCode(97 + number)) : number;
+          // mapped back to a letter
+          number !== " " && (number = String.fromCharCode(97 + number));
+          // if number is not a space, map it back to a letter from the ASCII value
           return number;
         })
-        .join("");
+        .join(""); // joined back into a string
     }
 
-    return output
-      .map(letter => letter.charCodeAt(0) - 97) // letters mapped to corresponding ASCII values
+    return output // if encode is set to true, return output array...
+      .map(letter => letter.charCodeAt(0) - 97) // with letters mapped to corresponding ASCII values
       .map(number => {
+        // mapped using the entered alphabet
+        number >= 0 && number <= 25
+          ? (number = alphabetArray[number])
+          : (number = String.fromCharCode(97 + number));
         // if between 0 and 25, map to corresponding value in alphabet array, else return it back to letter from ASCII value
-        number >= 0 && number <= 25 ? (number = alphabetArray[number]) : (number = String.fromCharCode(97 + number));
         return number;
       })
-      .join("");
+      .join(""); // join the array back into a string
   }
 
   return {

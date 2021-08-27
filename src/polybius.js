@@ -36,47 +36,45 @@ const polybiusModule = (function () {
   };
   function polybius(input, encode = true) {
     if (!encode) {
-      if (input.replace(" ", "").length % 2) return false;
-      const inputArray = input.replace(" ", "  ").split(""); // replace single spaces with double spaces & convert to array
+      // if encode set to false
+      if (input.replace(" ", "").length % 2) return false; // return false if length of input without spaces is odd
+      const inputArray = input.replace(" ", "  ").split(""); // replace single spaces with double spaces & split into array
       const charactersArray = [];
       // create new array to store separated strings
-      for (let i = 1; i < inputArray.length + 1; i += 2) {
-        // loop through input array
+      for (let i = 1; i < inputArray.length; i += 2) {
+        // loop through input array, starting at 2nd element and incrementing by 2
         charactersArray.push(inputArray[i - 1] + inputArray[i]);
+        // add both values at index i and one before it as single elements in new array
       }
-      return charactersArray
+      return charactersArray // return output of charactersArray...
         .map(character => {
           // mapped for characters in 'letters' object
           for (let letter in letters) {
             // for each key in letters
             if (letters[letter] === character) {
               // if the value matches a character in the array
-              character = letter;
-              if (character === "i" || character === "j") character = "(i/j)";
-              // convert that character to it's decoded value
+              character = letter; // convert that character to it's decoded value
+              (character === "i" || character === "j") && (character = "(i/j)"); // if character is 'i' or 'j', convert to '(i/j)'
             }
           }
           return character;
         })
         .join("") // join as a string
-        .replace("  ", " "); // replace double spaces with single
+        .replace("  ", " "); // replace double spaces back to single
     }
-    return input // return the output of the inputted string...
+    return input // if encode is true, return the output of the inputted string...
       .toLowerCase() // set to lower case
-      .split("") // converted into an array
+      .split("") // split into an array
       .map(character => {
         // mapped for characters in 'letters' object
         for (let letter in letters) {
           // for each key in letters
-          if (letter === character) {
-            // if the key matches a character in the array
-            character = letters[letter];
-            // convert that character to it's encoded value
-          }
+          letter === character && (character = letters[letter]);
+          // if the key matches a character in the array, convert that character to it's encoded value
         }
         return character;
       })
-      .join("");
+      .join(""); // join as a string
   }
 
   return {

@@ -1,7 +1,7 @@
 const { polybius } = require("../src/polybius");
 const expect = require("chai").expect;
 
-describe("polybius", () => {
+describe("Polybius", () => {
   describe("Function Validation", () => {
     it("should be a function", () => {
       const expected = "function";
@@ -29,17 +29,17 @@ describe("polybius", () => {
       const actual = polybius("ij");
       expect(actual).to.equal(expected);
     });
-    it("should return the correct encoding for single words", () => {
+    it("should encode correctly", () => {
       const expected = "4432423352125413";
       const actual = polybius("thinkful");
       expect(actual).to.equal(expected);
     });
-    it("should return the correct encoding when spaces are entered", () => {
+    it("should preserve spaces", () => {
       const expected = "3251131343 2543241341";
       const actual = polybius("hello world");
       expect(actual).to.equal(expected);
     });
-    it("should return the correct encoding when upper case letters are entered", () => {
+    it("should ignore upper-case letters", () => {
       const expected = "3251131343 2543241341";
       const actual = polybius("HELLO WORLD");
       expect(actual).to.equal(expected);
@@ -55,12 +55,12 @@ describe("polybius", () => {
       const actual = polybius("4242", false);
       expect(actual).to.equal(expected);
     });
-    it("should return the correct decoding for single words", () => {
+    it("should decode correctly", () => {
       const expected = "th(i/j)nkful";
       const actual = polybius("4432423352125413", false);
       expect(actual).to.equal(expected);
     });
-    it("should return the correct decoding when spaces are entered", () => {
+    it("should preserve spaces", () => {
       const expected = "hello world";
       const actual = polybius("3251131343 2543241341", false);
       expect(actual).to.equal(expected);
