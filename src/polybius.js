@@ -88,6 +88,4 @@ const polybiusModule = (function () {
   };
 })();
 
-console.log(polybiusModule.polybius("ABC de"));
-
 module.exports = { polybius: polybiusModule.polybius };
