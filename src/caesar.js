@@ -7,7 +7,10 @@ const caesarModule = (function () {
   // you can add any code you want within this function scope
 
   function caesar(input, shift = 0, encode = true) {
+    // Guard Clause
     if (shift === 0 || shift < -25 || shift > 25) return false; // return false if no shift, shift is 0, < -25, > 25
+
+    // Encode & Decode
     return input // return the output of the inputted string...
       .toLowerCase() // set to lower case
       .split("") // split into an array
