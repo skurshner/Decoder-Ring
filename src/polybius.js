@@ -50,20 +50,16 @@ const polybiusModule = (function () {
           for (let letter in letters) {
             // for each key in letters
             if (letters[letter] === character) {
-              // if the key matches a character in the array
+              // if the value matches a character in the array
               character = letter;
               if (character === "i" || character === "j") character = "(i/j)";
-              // convert that character to it's encoded value
+              // convert that character to it's decoded value
             }
           }
           return character;
         })
-        .join("")
-        .replace("  ", " ");
-
-      // loop through that array, converting the numbers to digits using letters
-      // join as a string
-      // replace double spaces with single
+        .join("") // join as a string
+        .replace("  ", " "); // replace double spaces with single
     }
     return input // return the output of the inputted string...
       .toLowerCase() // set to lower case
