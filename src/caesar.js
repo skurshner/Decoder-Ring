@@ -17,8 +17,7 @@ const caesarModule = (function () {
         if (number >= 0 && number <= 25) {
           // if number is between 0 and 25 (lowercase letters)
           let shifted; // initialize variable to store shifted number
-          encode ? (shifted = number + shift) : (shifted = number - shift);
-          // based on 'encode,' either subtract or add the shifted value from each number
+          encode ? (shifted = number + shift) : (shifted = number - shift); // based on 'encode,' either subtract or add the shifted value from each number
           shifted > 25 ? (shifted -= 26) : shifted; // if shifted value is greater than 25, subtract 26 to wrap it
           shifted < 0 ? (shifted += 26) : shifted; // if shifted value is less than 0, add 26 to wrap it
           return shifted; //return the shifted value
@@ -34,4 +33,6 @@ const caesarModule = (function () {
   };
 })();
 
-module.exports = { caesar: caesarModule.caesar };
+module.exports = {
+  caesar: caesarModule.caesar,
+};

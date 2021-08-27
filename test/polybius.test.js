@@ -8,15 +8,62 @@ describe("polybius", () => {
       const actual = typeof polybius;
       expect(actual).to.equal(expected);
     });
-    it("should return a string", () => {
-      const actual = typeof polybius(11);
+  });
+  describe("Error Handling", () => {
+    it("should return false if length of encoded input is odd", () => {
+      const actual = polybius("111", false);
+      expect(actual).to.be.false;
+    });
+    it("should return false if length of encoded input with spaces is odd", () => {
+      const actual = polybius("111 11", false);
+      expect(actual).to.be.false;
+    });
+  });
+  describe("Encoding", () => {
+    it("should return the encoded message as a string", () => {
+      const actual = typeof polybius("hello");
       expect(actual).to.be.a("string");
     });
-    describe("Error Handling", () => {
-      it("should return false if length of input is odd while decoding", () => {
-        const actual = polybius("11 1", false);
-        expect(actual).to.be.false;
-      });
+    it("should encode both 'i' and 'j' as '42'", () => {
+      const expected = "4242";
+      const actual = polybius("ij");
+      expect(actual).to.equal(expected);
+    });
+    it("should return the correct encoding for single words", () => {
+      const expected = "4432423352125413";
+      const actual = polybius("thinkful");
+      expect(actual).to.equal(expected);
+    });
+    it("should return the correct encoding when spaces are entered", () => {
+      const expected = "3251131343 2543241341";
+      const actual = polybius("hello world");
+      expect(actual).to.equal(expected);
+    });
+    it("should return the correct encoding when upper case letters are entered", () => {
+      const expected = "3251131343 2543241341";
+      const actual = polybius("HELLO WORLD");
+      expect(actual).to.equal(expected);
+    });
+  });
+  describe("Decoding", () => {
+    it("should return the decoded message as a string", () => {
+      const actual = typeof polybius("11", false);
+      expect(actual).to.be.a("string");
+    });
+    it("should decode '42' as '(i/j)'", () => {
+      const expected = "(i/j)(i/j)";
+      const actual = polybius("4242", false);
+      expect(actual).to.equal(expected);
+    });
+    it("should return the correct decoding for single words", () => {
+      const expected = "th(i/j)nkful";
+      const actual = polybius("4432423352125413", false);
+      expect(actual).to.equal(expected);
+    });
+    it("should return the correct decoding when spaces are entered", () => {
+      const expected = "hello world";
+      const actual = polybius("3251131343 2543241341", false);
+      expect(actual).to.equal(expected);
     });
   });
 });
