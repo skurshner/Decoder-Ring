@@ -36,7 +36,8 @@ const polybiusModule = (function () {
   };
   function polybius(input, encode = true) {
     // Guard Clause
-    if (!encode && input.replace(" ", "").length % 2) return false; // return false if length of encoded input without spaces is odd
+    if (!encode && input.replace(" ", "").length % 2) return false;
+    // return false if length of encoded input without spaces is odd
 
     // Encode
     if (encode) {
@@ -48,7 +49,7 @@ const polybiusModule = (function () {
           for (letter in letters) {
             // for each key in letters
             letter === character && (character = letters[letter]);
-            // if the key matches a character in the array, convert that character to it's encoded value
+            // if the key matches a character in the array, convert that character to its encoded value
           }
           return character;
         })
