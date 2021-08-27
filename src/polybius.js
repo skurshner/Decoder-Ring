@@ -4,7 +4,6 @@
 // of the anonymous function on line 6
 
 const polybiusModule = (function () {
-  // you can add any code you want within this function scope
   const letters = {
     a: "11",
     b: "21",
@@ -34,6 +33,7 @@ const polybiusModule = (function () {
     z: "55",
     " ": " ",
   };
+
   function polybius(input, encode = true) {
     // Guard Clause
     if (!encode && input.replace(" ", "").length % 2) return false;
@@ -71,7 +71,7 @@ const polybiusModule = (function () {
           // for each key in letters
           if (letters[letter] === character) {
             // if the value matches a character in the array
-            character = letter; // convert that character to it's decoded value
+            character = letter; // convert that character to its decoded value
             (character === "i" || character === "j") && (character = "(i/j)"); // if character is 'i' or 'j', convert to '(i/j)'
           }
         }

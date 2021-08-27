@@ -30,9 +30,8 @@ const substitutionModule = (function () {
         .map(number => {
           // mapped using the entered alphabet
           number >= 0 && number <= 25
-            ? (number = alphabetArray[number])
-            : (number = String.fromCharCode(97 + number));
-          // if between 0 and 25, map to corresponding value in alphabet array, else return it back to letter from ASCII value
+            ? (number = alphabetArray[number]) // if between 0 and 25, map to corresponding value in alphabet array,
+            : (number = String.fromCharCode(97 + number)); // else return it back to original letter from ASCII value
           return number;
         })
         .join(""); // join the array back into a string

@@ -4,8 +4,6 @@
 // of the anonymous function on line 6
 
 const caesarModule = (function () {
-  // you can add any code you want within this function scope
-
   function caesar(input, shift = 0, encode = true) {
     // Guard Clause
     if (shift === 0 || shift < -25 || shift > 25) return false; // return false if no shift, shift is 0, < -25, > 25
