@@ -2,3 +2,31 @@ body {
   background-color: #141414;
   font-family: "Space Mono", monospace;
 }
+
+.card {
+  background-color: #343a40;
+  color: #ffffff;
+}
+
+p,
+label {
+  color: #c5f467;
+}
+
+.btn {
+  color: #c5f467;
+  border: 1px solid #c5f467;
+}
+
+.btn:hover {
+  background-color: #c5f467;
+  color: #343a40;
+}
+
+.form-check-input::after {
+  background-color: #c5f467;
+}
+
+span {
+  color: #ffffff;
+}
