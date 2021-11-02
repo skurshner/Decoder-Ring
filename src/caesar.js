@@ -1,33 +1,26 @@
-// Please refrain from tampering with the setup code provided here,
-// as the index.html and test files rely on this setup to work properly.
-// Only add code (e.g., helper methods, variables, etc.) within the scope
-// of the anonymous function on line 6
-
 const caesarModule = (function () {
   function caesar(input, shift = 0, encode = true) {
     // Guard Clause
-    if (shift === 0 || shift < -25 || shift > 25) return false; // return false if no shift, shift is 0, < -25, > 25
+    if (shift === 0 || shift < -25 || shift > 25) return false;
 
-    // Encode & Decode
-    return input // return the output of the inputted string...
-      .toLowerCase() // set to lower case
-      .split("") // split into an array
-      .map(letter => letter.charCodeAt(0) - 97) // letters mapped to corresponding ASCII values
+    // Encode & Decode Caesar Shift
+    return input
+      .toLowerCase()
+      .split("")
+      .map(letter => letter.charCodeAt(0) - 97)
       .map(number => {
-        // numbers mapped to their shifted values
-        // if number is between 0 and 25 (lowercase letters)
         if (number >= 0 && number <= 25) {
-          let shifted; // initialize variable to store shifted number
+          let shifted;
           // based on 'encode,' either subtract or add the shifted value from each number
           encode ? (shifted = number + shift) : (shifted = number - shift);
-          shifted > 25 && (shifted -= 26); // if shifted value is greater than 25, subtract 26 to wrap it
-          shifted < 0 && (shifted += 26); // if shifted value is less than 0, add 26 to wrap it
-          return shifted; //return the shifted value
+          shifted > 25 && (shifted -= 26);
+          shifted < 0 && (shifted += 26);
+          return shifted;
         }
-        return number; // return the same value if not between 0 and 25
+        return number;
       })
-      .map(number => String.fromCharCode(97 + number)) // mapped back to letters from ASCII values
-      .join(""); // joined back into a string
+      .map(number => String.fromCharCode(97 + number))
+      .join("");
   }
 
   return {
