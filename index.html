@@ -47,9 +47,8 @@
               <hr />
               <form id="caesar">
                 <div class="form-group">
-                  <div class="form-check form-check-inline">
+                  <div class="radio-item">
                     <input
-                      class="form-check-input"
                       type="radio"
                       name="caesar-options"
                       id="caesar-options-encode"
@@ -60,9 +59,9 @@
                       >Encode</label
                     >
                   </div>
-                  <div class="form-check form-check-inline">
+                  <div class="radio-item">
                     <input
-                      class="form-check-input green-bg"
+                      class="btn-check"
                       type="radio"
                       name="caesar-options"
                       id="caesar-options-decode"
@@ -123,9 +122,8 @@
               <hr />
               <form id="polybius">
                 <div class="form-group">
-                  <div class="form-check form-check-inline">
+                  <div class="radio-item">
                     <input
-                      class="form-check-input"
                       type="radio"
                       name="polybius-options"
                       id="polybius-options-encode"
@@ -138,9 +136,8 @@
                       >Encode</label
                     >
                   </div>
-                  <div class="form-check form-check-inline">
+                  <div class="radio-item">
                     <input
-                      class="form-check-input"
                       type="radio"
                       name="polybius-options"
                       id="polybius-options-decode"
@@ -161,7 +158,7 @@
                     rows="3"
                   ></textarea>
                 </div>
-                <button class="btn btn-primary" type="submit">Submit</button>
+                <button class="btn" type="submit">Submit</button>
               </form>
             </div>
             <div
@@ -172,10 +169,10 @@
               Something went wrong! Check your input and try again.
             </div>
             <div class="card-footer">
-              Output:
-              <span class="font-weight-bold" id="polybius-output"
-                >No message as of yet...</span
-              >
+              <p>Output:
+                <span class="font-weight-bold" id="polybius-output"
+                  >No message as of yet...</span
+                ></p> 
             </div>
           </div>
         </div>
@@ -199,9 +196,8 @@
               <hr />
               <form id="substitution">
                 <div class="form-group">
-                  <div class="form-check form-check-inline">
+                  <div class="radio-item">
                     <input
-                      class="form-check-input"
                       type="radio"
                       name="substitution-options"
                       id="substitution-options-encode"
@@ -214,9 +210,8 @@
                       >Encode</label
                     >
                   </div>
-                  <div class="form-check form-check-inline">
+                  <div class="radio-item">
                     <input
-                      class="form-check-input"
                       type="radio"
                       name="substitution-options"
                       id="substitution-options-decode"
@@ -246,7 +241,7 @@
                     maxlength="26"
                   />
                 </div>
-                <button class="btn btn-primary" type="submit">Submit</button>
+                <button class="btn" type="submit">Submit</button>
               </form>
             </div>
             <div
@@ -257,10 +252,10 @@
               Something went wrong! Check your input and alphabet key.
             </div>
             <div class="card-footer">
-              Output:
+             <p>Output:
               <span class="font-weight-bold" id="substitution-output"
                 >No message as of yet...</span
-              >
+              ></p> 
             </div>
           </div>
         </div>

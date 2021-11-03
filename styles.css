@@ -1,3 +1,7 @@
+:root {
+  --green: #c5f467;
+}
+
 body {
   background-color: #141414;
   font-family: "Space Mono", monospace;
@@ -10,23 +14,75 @@ body {
 
 p,
 label {
-  color: #c5f467;
+  color: var(--green);
 }
 
 .btn {
-  color: #c5f467;
-  border: 1px solid #c5f467;
+  color: var(--green);
+  border: 1px solid var(--green);
 }
 
 .btn:hover {
-  background-color: #c5f467;
+  background-color: var(--green);
   color: #343a40;
-}
-
-.form-check-input::after {
-  background-color: #c5f467;
 }
 
 span {
   color: #ffffff;
+}
+
+.radio-item {
+  display: inline-block;
+  position: relative;
+  padding: 0 6px;
+  margin: 10px 0 0;
+}
+
+.radio-item input[type="radio"] {
+  display: none;
+}
+
+.radio-item label {
+  color: var(--green);
+  font-weight: normal;
+}
+
+.radio-item label:before {
+  content: " ";
+  display: inline-block;
+  position: relative;
+  top: 5px;
+  margin: 0 8px 0 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 11px;
+  border: 2px solid var(--green);
+  background-color: transparent;
+}
+
+.radio-item input[type="radio"]:checked + label:after {
+  border-radius: 11px;
+  width: 12px;
+  height: 12px;
+  position: absolute;
+  top: 9px;
+  left: 10px;
+  content: " ";
+  display: block;
+  background: var(--green);
+}
+
+.form-control {
+  background-color: transparent;
+  border: 1px solid transparent;
+  border-bottom: 1px solid var(--green);
+  border-radius: 0px;
+}
+
+.form-control:focus {
+  background-color: transparent;
+  border-color: transparent;
+  box-shadow: none;
+  border-bottom: 1px solid var(--green);
+  color: var(--green);
 }
