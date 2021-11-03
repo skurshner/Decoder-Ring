@@ -10,6 +10,7 @@ body {
 .card {
   background-color: #343a40;
   color: #ffffff;
+  border: none;
 }
 
 p,
@@ -93,13 +94,14 @@ hr {
 }
 
 .card-header {
-  background-color: transparent;
+  background-color: #a4b1cd;
   border: none;
   box-shadow: none;
-  color: #ffffff;
+  color: #000000;
 }
 
 .card-footer {
-  background-color: transparent;
+  background-color: #000000;
   border: none;
+  box-shadow: none;
 }
