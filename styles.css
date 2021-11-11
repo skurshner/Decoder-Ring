@@ -28,6 +28,10 @@ label {
   color: #343a40;
 }
 
+.btn:focus {
+  box-shadow: none;
+}
+
 span {
   color: #ffffff;
 }
@@ -104,4 +108,18 @@ hr {
   background-color: #000000;
   border: none;
   box-shadow: none;
+}
+
+.nav-link {
+  color: var(--green);
+}
+
+.nav-link:active {
+  background-color: var(--green);
+  color: #343a40;
+}
+
+.nav-link:hover {
+  background-color: var(--green);
+  color: #343a40;
 }
