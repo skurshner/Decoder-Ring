@@ -13,6 +13,10 @@ body {
   border: none;
 }
 
+h2 {
+  color: white;
+}
+
 p,
 label {
   color: var(--green);
@@ -23,7 +27,8 @@ label {
   border: 1px solid var(--green);
 }
 
-.btn:hover {
+.btn:hover,
+.btn-active {
   background-color: var(--green);
   color: #343a40;
 }
@@ -34,6 +39,10 @@ label {
 
 span {
   color: #ffffff;
+}
+
+.hidden {
+  display: none;
 }
 
 .radio-item {

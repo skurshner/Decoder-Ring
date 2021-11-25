@@ -27,14 +27,18 @@
     <main class="container my-4">
       
       <!-- Tab navigation -->
-      <div class="btn-group btn-group-lg flex-wrap mb-4" role="page-nav" aria-label="Select cypher type">
-        <button type="button" class="btn ">Caesar Shift</button>
-        <button type="button" class="btn ">Polybius Square</button>
-        <button type="button" class="btn ">Substitution Cipher</button>
+      <div>
+        <h2 class="h2 mb-3">Choose your cipher method:</h2>
+        <div class="btn-group btn-group-lg flex-wrap mb-4" role="page-nav" aria-label="Select cypher type">
+          <button type="button" id="select-caesar" class="btn btn-active">Caesar Shift</button>
+          <button type="button" id="select-polybius" class="btn ">Polybius Square</button>
+          <button type="button" id="select-substitution" class="btn ">Substitution Cipher</button>
+        </div>
       </div>
+     
       
       <!-- Caesar Shift -->
-      <section class="row">
+      <section id="caesar-block" class="row">
         <div class="col">
           <div class="card">
             <div class="card-header">
@@ -110,7 +114,7 @@
       </section>
 
       <!-- Polybius -->
-      <section class="row mt-4">
+      <section id="polybius-block" class="row hidden">
         <div class="col">
           <div class="card">
             <div class="card-header">
@@ -120,7 +124,7 @@
               <p>
                 The Polybius Square is a cipher that is achieved by arranging a
                 typical alphabet into a grid. Each letter is represented through
-                a coordinate. For example, in the above table, the letter "B"
+                a coordinate. For example, the letter "B"
                 would be represented by the numerical pair "21".
               </p>
               <hr />
@@ -183,7 +187,7 @@
       </section>
 
       <!-- Substitution -->
-      <section class="row mt-4">
+      <section id="substitution-block" class="row hidden">
         <div class="col">
           <div class="card">
             <div class="card-header">
@@ -268,6 +272,7 @@
     </main>
 
     <script src="./scripts/setup.js"></script>
+    <script src="./scripts/script.js"></script>
     <script src="./src/caesar.js"></script>
     <script src="./src/polybius.js"></script>
     <script src="./src/substitution.js"></script>
