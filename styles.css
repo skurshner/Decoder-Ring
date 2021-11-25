@@ -20,6 +20,7 @@ label {
   background-color: #343a40;
   color: #ffffff;
   border: none;
+  border-radius: 0px;
 }
 
 .card-header {
@@ -38,6 +39,7 @@ label {
 .btn {
   color: var(--green);
   border: 1px solid var(--green);
+  border-radius: 0;
 }
 
 .btn:hover,
@@ -117,4 +119,8 @@ span {
 
 hr {
   border-color: #40474e;
+}
+
+.btn-group-lg > .btn {
+  border-radius: 0 0 0 0;
 }
