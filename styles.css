@@ -7,19 +7,32 @@ body {
   font-family: "Space Mono", monospace;
 }
 
-.card {
-  background-color: #343a40;
-  color: #ffffff;
-  border: none;
-}
-
-h2 {
+h4 {
   color: white;
 }
 
 p,
 label {
   color: var(--green);
+}
+
+.card {
+  background-color: #343a40;
+  color: #ffffff;
+  border: none;
+}
+
+.card-header {
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+  color: #ffffff;
+}
+
+.card-footer {
+  background-color: #000000;
+  border: none;
+  box-shadow: none;
 }
 
 .btn {
@@ -104,31 +117,4 @@ span {
 
 hr {
   border-color: #40474e;
-}
-
-.card-header {
-  background-color: #a4b1cd;
-  border: none;
-  box-shadow: none;
-  color: #000000;
-}
-
-.card-footer {
-  background-color: #000000;
-  border: none;
-  box-shadow: none;
-}
-
-.nav-link {
-  color: var(--green);
-}
-
-.nav-link:active {
-  background-color: var(--green);
-  color: #343a40;
-}
-
-.nav-link:hover {
-  background-color: var(--green);
-  color: #343a40;
 }

@@ -6,9 +6,9 @@ const polybiusBlock = document.getElementById("polybius-block");
 const substitutionBlock = document.getElementById("substitution-block");
 
 caesarSelect.addEventListener("click", () => {
-  if (!caesarSelect.classList.contains("btn-active")) {
+  !caesarSelect.classList.contains("btn-active") &&
     caesarSelect.classList.add("btn-active");
-  }
+
   polybiusSelect.classList.remove("btn-active");
   substitutionSelect.classList.remove("btn-active");
 
@@ -18,9 +18,9 @@ caesarSelect.addEventListener("click", () => {
 });
 
 polybiusSelect.addEventListener("click", () => {
-  if (!polybiusSelect.classList.contains("btn-active")) {
+  !polybiusSelect.classList.contains("btn-active") &&
     polybiusSelect.classList.add("btn-active");
-  }
+
   caesarSelect.classList.remove("btn-active");
   substitutionSelect.classList.remove("btn-active");
 
@@ -30,9 +30,9 @@ polybiusSelect.addEventListener("click", () => {
 });
 
 substitutionSelect.addEventListener("click", () => {
-  if (!substitutionSelect.classList.contains("btn-active")) {
+  !substitutionSelect.classList.contains("btn-active") &&
     substitutionSelect.classList.add("btn-active");
-  }
+
   caesarSelect.classList.remove("btn-active");
   polybiusSelect.classList.remove("btn-active");
 
